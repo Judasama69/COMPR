@@ -2,9 +2,9 @@
 using namespace std;
 
 int main() {
-	string destinationName;
+    string destinationName;
     int destination, userType;
-	float total, fare, discount = 0;
+    float total, fare, discount = 0;
 
     cout << "1. Bais - Dumaguete (80 Pesos)\n";
     cout << "2. Bais - Sibulan (70 Pesos)\n";
@@ -45,10 +45,8 @@ int main() {
         cout << "Invalid choice!";
         return 1;
     }
-
-
+	
     total = fare - discount;
     cout << "Your total payment is " << total << " Pesos" << endl;
-
     return 0;
 }
