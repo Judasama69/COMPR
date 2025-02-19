@@ -2,12 +2,12 @@
 using namespace std;
 
 int main() {
-	int drinkChoice;
-	int drinkPrice = 0.0;
+    int drinkChoice;
+    int drinkPrice = 0;
     string drinkName = "";
-    int foodPrice = 0.0;
+    int foodPrice = 0;
     string foodName = "";
-    int foodChoice; // Declare foodChoice variable
+    int foodChoice;
 
     // Food menu
     cout << "WELCOME TO OASHNIE'S RESTAURANT\n";
@@ -19,22 +19,20 @@ int main() {
     cout << "Enter your food choice (1-4): ";
     cin >> foodChoice;
 
-
-    if (foodChoice == 1) {
-        foodName = "Pansit bihon";
-        foodPrice = 30.00;
-    } else if (foodChoice == 2) {
-        foodName = "Lumpiang shanghai";
-        foodPrice = 10.00;
-    } else if (foodChoice == 3) {
-        foodName = "Lechon kawali";
-        foodPrice = 80.00;
-    } else if (foodChoice == 4) {
-        foodName = "Spaghetti";
-        foodPrice = 20.00;
-    } else {
-        cout << "Invalid food choice. Please choose a number between 1 and 4.\n";
-        return 0; // Exit the program for invalid input
+    switch (foodChoice) {
+        case 1:
+            foodName = "Pansit bihon"; foodPrice = 30; break;
+        case 2:
+            foodName = "Lumpiang shanghai"; foodPrice = 10; break;
+        case 3:
+            foodName = "Lechon kawali"; foodPrice = 80; break;
+        case 4:
+            foodName = "Spaghetti";
+            foodPrice = 20;
+            break;
+        default:
+            cout << "Invalid food choice. Please choose a number between 1 and 4.\n";
+            return 0;
     }
 
     // Ask if the user wants a drink
@@ -43,7 +41,6 @@ int main() {
     cout << "2. No\n";
     cout << "Enter your choice: ";
     cin >> drinkChoice;
-
 
     if (drinkChoice == 1) {
         // Drink menu
@@ -54,17 +51,21 @@ int main() {
         cout << "Enter your drink choice (1-3): ";
         cin >> drinkChoice;
 
-        if (drinkChoice == 1) {
-            drinkName = "Soft drink";
-            drinkPrice = 15.00;
-        } else if (drinkChoice == 2) {
-            drinkName = "Iced tea";
-            drinkPrice = 20.00;
-        } else if (drinkChoice == 3) {
-            drinkName = "Water";
-            drinkPrice = 10.00;
-        } else {
-            cout << "Invalid drink choice. No drink will be added to your order.\n";
+        switch (drinkChoice) {
+            case 1:
+                drinkName = "Soft drink";
+                drinkPrice = 15;
+                break;
+            case 2:
+                drinkName = "Iced tea";
+                drinkPrice = 20;
+                break;
+            case 3:
+                drinkName = "Water";
+                drinkPrice = 10;
+                break;
+            default:
+                cout << "Invalid drink choice. No drink will be added to your order.\n";
         }
     } else if (drinkChoice != 2) {
         cout << "Invalid choice. Please select 1 (Yes) or 2 (No).\n";
@@ -73,13 +74,12 @@ int main() {
 
     // Display the summary of the order
     cout << "\nORDER SUMMARY:\n";
-    cout << "You ordered: " << foodName << " - " << foodPrice << " Pesos" <<"\n";
+    cout << "You ordered: " << foodName << " - " << foodPrice << " Pesos\n";
     if (drinkPrice > 0) {
-        cout << "You added: " << drinkName << " - " << drinkPrice << " Pesos" <<"\n";
+        cout << "You added: " << drinkName << " - " << drinkPrice << " Pesos\n";
     }
-    cout << "Total Price: " << (foodPrice + drinkPrice) << "\n";
+    cout << "Total Price: " << (foodPrice + drinkPrice) << " Pesos\n";
     cout << "Thank you for dining with us!\n";
 
     return 0;
 }
-
